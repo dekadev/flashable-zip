@@ -1,0 +1,9 @@
+show_progress(0.1, 0);
+mount("ext4", "EMMC", "/dev/block/mmcblk0p15", "/system");
+package_extract_dir("system", "/system");
+set_perm_recursive(0, 0, 0755, 0644, "/system/etc/wifi");
+show_progress(0.1, 10);
+show_progress(0.2, 0);
+package_extract_file("boot.img", "/dev/block/mmcblk0p8");
+show_progress(0.2, 10);
+unmount("/system");
